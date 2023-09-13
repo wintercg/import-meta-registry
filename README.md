@@ -15,4 +15,7 @@ The process for adding new items to this registry is to open a pull request. Reg
 | `import.meta.url`     | A module scripts base URL | https://html.spec.whatwg.org/multipage/webappapis.html#hostgetimportmetaproperties |
 | `import.meta.resolve` | Resolves a module specifier to a URL using the current module's URL as base. | https://html.spec.whatwg.org/multipage/webappapis.html#hostgetimportmetaproperties |
 | `import.meta.main`    | Returns whether the current module is the entry point to your program. | https://deno.land/manual@v1.36.4/runtime/import_meta_api#importmeta--api |
+| `import.meta.dir`     | Absolute path to the directory containing the current file, e.g. /path/to/project. Equivalent to __dirname in CommonJS modules (and Node.js) | https://bun.sh/docs/api/import-meta |
+| `import.meta.file`    | The name of the current file, e.g. index.tsx | https://bun.sh/docs/api/import-meta |
+| `import.meta.path`    | Absolute path to the current file, e.g. /path/to/project/index.tx. Equivalent to __filename in CommonJS modules (and Node.js) | https://bun.sh/docs/api/import-meta |
 
