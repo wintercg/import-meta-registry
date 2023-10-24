@@ -20,7 +20,7 @@ For runtimes that support filesystem-based modules, we propose adding two new op
 
 A string containing the full absolute filesystem path to the current module, like CommonJS `__filename`. This is the same as `fileURLToPath(import.meta.url)` in Node.js. An example value would be `/Users/Geoffrey/my-project/src/index.js`.
 
-The value will be undefined for modules that are not loaded from the filesystem, such as modules whose `import.meta.url` begins with `http` or `data`.
+The property will not be present for modules that are not loaded from the filesystem, such as modules whose `import.meta.url` begins with `http` or `data`.
 
 ### `import.meta.dirname`
 
@@ -28,11 +28,11 @@ A string containing the full absolute filesystem path of the folder containing t
 
 The value should not have a trailing slash. This is consistent with CommonJS `__dirname`, so that it can be used as a drop-in replacement.
 
-The value will be undefined for modules that are not loaded from the filesystem, such as modules whose `import.meta.url` begins with `http` or `data`.
+The property will not be present for modules that are not loaded from the filesystem, such as modules whose `import.meta.url` begins with `http` or `data`.
 
 ## Notes
 
-These properties would be optional, even if a runtime supports filesystem-based modules. This allows for runtimes where modules are _primarily_ run from HTTP / HTTPS URLs to avoid creating a portability hazard where these properties exist while developers are working locally but are undefined when the code is deployed.
+These properties would be optional, even if a runtime supports filesystem-based modules. This allows for runtimes where modules are _primarily_ run from HTTP / HTTPS URLs to avoid creating a portability hazard where these properties exist while developers are working locally but are missing when the code is deployed.
 
 This portability hazard is a primary objection to this proposal. We feel that on balance, the convenience of these properties outweighs the potential hazard; and that a different portability hazard exists without these helpers, in that developers will write code such as `fileURLToPath(import.meta.url)` that works locally but not over CDN similarly to how `import.meta.filename` would work locally but not over CDN.
 
