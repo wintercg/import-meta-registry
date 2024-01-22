@@ -10,13 +10,16 @@ Likewise, implementations should try their best to avoid adding new `import.meta
 
 The process for adding new items to this registry is to open a pull request. Registrations must include all three fields: Name, Description, and a link to a specifying document. The specifying document does not need to be a formal standard -- links to project documentation or even source code is sufficient so long as the semantics of the property are appropriately described. After one week, if there are no objections from WinterCG participants to the registration and at least one sign off on the PR, it can be added.
 
+Import meta keys should be defined alphabetically.
+
 |        Property       | Description | Link |
 | --------------------- | ----------- | ---- |
-| `import.meta.url`     | A module scripts base URL | https://html.spec.whatwg.org/multipage/webappapis.html#hostgetimportmetaproperties |
-| `import.meta.resolve` | Resolves a module specifier to a URL using the current module's URL as base. | https://html.spec.whatwg.org/multipage/webappapis.html#hostgetimportmetaproperties |
-| `import.meta.main`    | Returns whether the current module is the entry point to your program. | https://deno.land/manual@v1.36.4/runtime/import_meta_api#importmeta--api |
+| `import.meta.command` | **true** when the current module is the process entry point within the top-level execution context, corresponding to a POSIX-style run-to-completion process execution model (along with the standard OS access assumptions of environment variables, a filesystem, etc. and specifically, not applicable for the browser). May remain `undefined` in other modules. | https://deno.land/manual@v1.36.4/runtime/import_meta_api#importmeta--api |
+| `import.meta.dir`     | Alias of `import.meta.dirname` | https://bun.sh/docs/api/import-meta |
 | `import.meta.dirname` | Absolute file path of the folder containing the current module, with trailing slash. Like CommonJS `__dirname`. | [import-meta-path-helpers.md](./import-meta-path-helpers.md) |
-| `import.meta.filename` | Absolute file path of current module. Like CommonJS `__filename`. | [import-meta-path-helpers.md](./import-meta-path-helpers.md) |
-| `import.meta.dir`     | Absolute path to the directory containing the current file, e.g. /path/to/project. Equivalent to __dirname in CommonJS modules (and Node.js) | https://bun.sh/docs/api/import-meta |
 | `import.meta.file`    | The name of the current file, e.g. index.tsx | https://bun.sh/docs/api/import-meta |
+| `import.meta.filename` | Absolute file path of current module. Like CommonJS `__filename`. | [import-meta-path-helpers.md](./import-meta-path-helpers.md) |
+| `import.meta.main`    | Alias of `import.meta.command` | https://deno.land/manual@v1.36.4/runtime/import_meta_api#importmeta--api |
 | `import.meta.path`    | Absolute path to the current file, e.g. /path/to/project/index.tx. Equivalent to __filename in CommonJS modules (and Node.js) | https://bun.sh/docs/api/import-meta |
+| `import.meta.resolve` | Resolves a module specifier to a URL using the current module's URL as base. | https://html.spec.whatwg.org/multipage/webappapis.html#hostgetimportmetaproperties |
+| `import.meta.url`     | A module scripts base URL | https://html.spec.whatwg.org/multipage/webappapis.html#hostgetimportmetaproperties |
