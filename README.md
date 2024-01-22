@@ -14,7 +14,7 @@ Import meta keys should be defined alphabetically.
 
 |        Property       | Description | Link |
 | --------------------- | ----------- | ---- |
-| `import.meta.command` | **true** when the current module is the process entry point within the top-level execution context. May remain `undefined` in other modules. | https://deno.land/manual@v1.36.4/runtime/import_meta_api#importmeta--api |
+| `import.meta.command` | **true** when the current module is the process entry point within the top-level execution context, corresponding to a POSIX-style run-to-completion process execution model (along with the standard OS access assumptions of environment variables, a filesystem, etc. and specifically, not applicable for the browser). May remain `undefined` in other modules. | https://deno.land/manual@v1.36.4/runtime/import_meta_api#importmeta--api |
 | `import.meta.dir`     | Alias of `import.meta.dirname` | https://bun.sh/docs/api/import-meta |
 | `import.meta.dirname` | Absolute file path of the folder containing the current module, with trailing slash. Like CommonJS `__dirname`. | [import-meta-path-helpers.md](./import-meta-path-helpers.md) |
 | `import.meta.file`    | The name of the current file, e.g. index.tsx | https://bun.sh/docs/api/import-meta |
